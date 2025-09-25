@@ -235,6 +235,15 @@
             margin-top: 40px;
         }
         
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
@@ -280,6 +289,10 @@
     <div class="container">
         <section id="tentang">
             <h2>Tentang Botly</h2>
+            <div class="warning">
+                <strong>Peringatan Keamanan:</strong> Token dan kunci API yang sebelumnya terekspos telah di-revoke. 
+                Konfigurasi aktual disediakan secara privat kepada klien setelah proses onboarding.
+            </div>
             <p>Botly adalah layanan jasa pembuatan dan pengelolaan bot Telegram yang dirancang khusus untuk kebutuhan bisnis modern. Dengan integrasi pembayaran cryptocurrency melalui NowPayments, Botly memungkinkan Anda menerima pembayaran dari seluruh dunia dengan mudah dan aman.</p>
             
             <div class="service-cards">
@@ -389,32 +402,35 @@
         
         <section id="konfigurasi">
             <h2>Konfigurasi Cloudflare Workers</h2>
-            <p>Botly menggunakan konfigurasi berikut untuk mengatur lingkungan kerja:</p>
+            <p>Botly menggunakan konfigurasi terstandardisasi dengan environment variables yang aman:</p>
             
             <h3 style="text-align: left; margin: 30px 0 15px 0;">Namespace KV</h3>
             <div class="config-code">
                 <pre><code><span class="code-comment"># Konfigurasi Namespace KV untuk penyimpanan data</span>
 [[<span class="code-key">kv_namespaces</span>]]
 <span class="code-key">binding</span> = <span class="code-value">"ORDERS_KV"</span>
-<span class="code-key">id</span> = <span class="code-value">"orderskv"</span>
-<span class="code-key">preview_id</span> = <span class="code-value">"orderskv"</span>
+<span class="code-key">id</span> = <span class="code-value">"your_orders_kv_id"</span>
 
 [[<span class="code-key">kv_namespaces</span>]]
 <span class="code-key">binding</span> = <span class="code-value">"SESSIONS_KV"</span>
-<span class="code-key">id</span> = <span class="code-value">"sessionskv"</span>
-<span class="code-key">preview_id</span> = <span class="code-value">"sessionskv"</span></code></pre>
+<span class="code-key">id</span> = <span class="code-value">"your_sessions_kv_id"</span></code></pre>
             </div>
             
             <h3 style="text-align: left; margin: 30px 0 15px 0;">Variabel Environment</h3>
             <div class="config-code">
                 <pre><code><span class="code-comment"># Variabel environment untuk konfigurasi bot</span>
 [<span class="code-key">vars</span>]
-<span class="code-key">TELEGRAM_TOKEN</span> = <span class="code-value">"7616618518:AAFV-qHyL7Hvr5k6wNq8vRMa9aa4hX14OT8"</span>
-<span class="code-key">ADMIN_CHAT_ID</span> = <span class="code-value">"6734882136"</span>
-<span class="code-key">NOWPAYMENTS_API_KEY</span> = <span class="code-value">"0ACWTT1-H21ME9G-QJQ3CPT-5J5AZG0"</span>
+<span class="code-key">TELEGRAM_TOKEN</span> = <span class="code-value">"your_telegram_bot_token"</span>
+<span class="code-key">ADMIN_CHAT_ID</span> = <span class="code-value">"your_admin_chat_id"</span>
+<span class="code-key">NOWPAYMENTS_API_KEY</span> = <span class="code-value">"your_nowpayments_api_key"</span>
 <span class="code-key">CURRENCY</span> = <span class="code-value">"USD"</span>
 <span class="code-key">PAY_CURRENCY</span> = <span class="code-value">"USDTBSC"</span>
-<span class="code-key">BASE_URL</span> = <span class="code-value">"https://zrcxvs.zrcxvs.workers.dev"</span></code></pre>
+<span class="code-key">BASE_URL</span> = <span class="code-value">"your_workers_dev_url"</span></code></pre>
+            </div>
+            
+            <div class="warning">
+                <strong>Catatan Penting:</strong> Semua token dan kunci API yang sebenarnya dikonfigurasi melalui 
+                environment variables yang aman di Cloudflare Dashboard dan tidak pernah disimpan dalam kode yang terekspos publik.
             </div>
         </section>
         
