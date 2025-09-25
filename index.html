@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botly - Layanan Bot Telegram Profesional</title>
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --secondary: #8338ec;
+            --accent: #ff006e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #38b000;
+            --warning: #ff9e00;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        nav {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        section {
+            padding: 60px 0;
+            background-color: white;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2rem;
+        }
+        
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .tech-item {
+            background-color: var(--light);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .config-code {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+        }
+        
+        .code-comment {
+            color: #75715e;
+        }
+        
+        .code-key {
+            color: #66d9ef;
+        }
+        
+        .code-value {
+            color: #a6e22e;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background-color: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">BOTLY</div>
+            <div class="tagline">Layanan Bot Telegram Profesional dengan Pembayaran Crypto</div>
+            <p>Solusi otomatisasi bisnis Anda dengan teknologi terkini</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#layanan">Layanan</a></li>
+                <li><a href="#teknologi">Teknologi</a></li>
+                <li><a href="#konfigurasi">Konfigurasi</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <section id="tentang">
+            <h2>Tentang Botly</h2>
+            <p>Botly adalah layanan jasa pembuatan dan pengelolaan bot Telegram yang dirancang khusus untuk kebutuhan bisnis modern. Dengan integrasi pembayaran cryptocurrency melalui NowPayments, Botly memungkinkan Anda menerima pembayaran dari seluruh dunia dengan mudah dan aman.</p>
+            
+            <div class="service-cards">
+                <div class="card">
+                    <h3>Misi Kami</h3>
+                    <p>Memberikan solusi bot Telegram yang mudah digunakan, andal, dan terintegrasi dengan sistem pembayaran modern untuk membantu bisnis berkembang di era digital.</p>
+                </div>
+                <div class="card">
+                    <h3>Keunggulan</h3>
+                    <p>Botly dibangun dengan teknologi Cloudflare Workers yang memastikan kecepatan dan keandalan tinggi, serta skalabilitas untuk menangani ribuan pengguna secara bersamaan.</p>
+                </div>
+                <div class="card">
+                    <h3>Target Pengguna</h3>
+                    <p>Perfect untuk pemula di platform Android yang ingin mengotomatiskan bisnis mereka tanpa perlu pengetahuan teknis yang mendalam tentang pemrograman.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="layanan">
+            <h2>Layanan Kami</h2>
+            <p>Botly menawarkan berbagai layanan untuk memenuhi kebutuhan otomatisasi bisnis Anda:</p>
+            
+            <div class="service-cards">
+                <div class="card">
+                    <h3>Bot Pesan Otomatis</h3>
+                    <p>Membuat bot yang dapat merespons pesan secara otomatis, memberikan informasi produk, dan menangani pertanyaan umum pelanggan 24/7.</p>
+                </div>
+                <div class="card">
+                    <h3>Sistem Pemesanan</h3>
+                    <p>Mengembangkan sistem pemesanan produk atau layanan melalui bot Telegram dengan proses yang mudah dan intuitif.</p>
+                </div>
+                <div class="card">
+                    <h3>Integrasi Pembayaran Crypto</h3>
+                    <p>Menghubungkan bot dengan NowPayments untuk menerima pembayaran dalam berbagai cryptocurrency seperti USDT, Bitcoin, dan lainnya.</p>
+                </div>
+                <div class="card">
+                    <h3>Manajemen Data Pelanggan</h3>
+                    <p>Menyimpan dan mengelola data pesanan serta sesi pelanggan menggunakan Cloudflare KV untuk akses yang cepat dan aman.</p>
+                </div>
+                <div class="card">
+                    <h3>Laporan dan Analitik</h3>
+                    <p>Menyediakan dashboard sederhana untuk memantau aktivitas bot, pesanan, dan pembayaran yang masuk.</p>
+                </div>
+                <div class="card">
+                    <h3>Dukungan dan Pemeliharaan</h3>
+                    <p>Memberikan dukungan teknis berkelanjutan dan pemeliharaan rutin untuk memastikan bot berjalan optimal.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="teknologi">
+            <h2>Teknologi yang Digunakan</h2>
+            <p>Botly memanfaatkan teknologi terdepan untuk memberikan pengalaman terbaik:</p>
+            
+            <div class="tech-stack">
+                <div class="tech-item">Cloudflare Workers</div>
+                <div class="tech-item">Cloudflare KV</div>
+                <div class="tech-item">NowPayments API</div>
+                <div class="tech-item">Telegram Bot API</div>
+                <div class="tech-item">JavaScript</div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <h3 style="text-align: left; margin-bottom: 20px;">Alur Kerja Botly</h3>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h4>Pengguna Berinteraksi dengan Bot</h4>
+                        <p>Pengguna mengirim pesan ke bot Telegram yang dikelola oleh Botly melalui BotFather.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h4>Cloudflare Workers Memproses Permintaan</h4>
+                        <p>Permintaan dari pengguna diproses oleh Cloudflare Workers yang berjalan di edge network global Cloudflare.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h4>Penyimpanan Data di Cloudflare KV</h4>
+                        <p>Data pesanan dan sesi pengguna disimpan di Cloudflare KV untuk akses yang cepat dan andal.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h4>Integrasi Pembayaran dengan NowPayments</h4>
+                        <p>Untuk transaksi berbayar, sistem terintegrasi dengan NowPayments untuk memproses pembayaran cryptocurrency.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div>
+                        <h4>Notifikasi ke Admin</h4>
+                        <p>Admin menerima notifikasi melalui Telegram untuk setiap pesanan atau aktivitas penting.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="konfigurasi">
+            <h2>Konfigurasi Cloudflare Workers</h2>
+            <p>Botly menggunakan konfigurasi berikut untuk mengatur lingkungan kerja:</p>
+            
+            <h3 style="text-align: left; margin: 30px 0 15px 0;">Namespace KV</h3>
+            <div class="config-code">
+                <pre><code><span class="code-comment"># Konfigurasi Namespace KV untuk penyimpanan data</span>
+[[<span class="code-key">kv_namespaces</span>]]
+<span class="code-key">binding</span> = <span class="code-value">"ORDERS_KV"</span>
+<span class="code-key">id</span> = <span class="code-value">"orderskv"</span>
+<span class="code-key">preview_id</span> = <span class="code-value">"orderskv"</span>
+
+[[<span class="code-key">kv_namespaces</span>]]
+<span class="code-key">binding</span> = <span class="code-value">"SESSIONS_KV"</span>
+<span class="code-key">id</span> = <span class="code-value">"sessionskv"</span>
+<span class="code-key">preview_id</span> = <span class="code-value">"sessionskv"</span></code></pre>
+            </div>
+            
+            <h3 style="text-align: left; margin: 30px 0 15px 0;">Variabel Environment</h3>
+            <div class="config-code">
+                <pre><code><span class="code-comment"># Variabel environment untuk konfigurasi bot</span>
+[<span class="code-key">vars</span>]
+<span class="code-key">TELEGRAM_TOKEN</span> = <span class="code-value">"7616618518:AAFV-qHyL7Hvr5k6wNq8vRMa9aa4hX14OT8"</span>
+<span class="code-key">ADMIN_CHAT_ID</span> = <span class="code-value">"6734882136"</span>
+<span class="code-key">NOWPAYMENTS_API_KEY</span> = <span class="code-value">"0ACWTT1-H21ME9G-QJQ3CPT-5J5AZG0"</span>
+<span class="code-key">CURRENCY</span> = <span class="code-value">"USD"</span>
+<span class="code-key">PAY_CURRENCY</span> = <span class="code-value">"USDTBSC"</span>
+<span class="code-key">BASE_URL</span> = <span class="code-value">"https://zrcxvs.zrcxvs.workers.dev"</span></code></pre>
+            </div>
+        </section>
+        
+        <section id="kontak">
+            <h2>Hubungi Kami</h2>
+            <p>Untuk informasi lebih lanjut atau konsultasi mengenai layanan Botly, silakan hubungi kami:</p>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subjek</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Pesan</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit">Kirim Pesan</button>
+                </form>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Botly - Layanan Jasa Bot Telegram Profesional</p>
+            <p>Email: info@botly.id | Telegram: @botly_support</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling untuk navigasi
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah dikirim. Kami akan menghubungi Anda segera.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
