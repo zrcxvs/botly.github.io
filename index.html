@@ -450,26 +450,16 @@
                     <strong>Terima kasih!</strong> Pesan Anda telah berhasil dikirim. Kami akan menghubungi Anda segera.
                 </div>
                 
-                <!-- Form yang terhubung ke Formspree -->
+                <!-- Form yang terhubung ke Formspree dengan hanya email dan pesan -->
                 <form id="contactForm" action="https://formspree.io/f/xpwyqlje" method="POST">
                     <div class="form-group">
-                        <label for="name">Nama</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Subjek</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <input type="email" id="email" name="email" required placeholder="Masukkan alamat email Anda">
                     </div>
                     
                     <div class="form-group">
                         <label for="message">Pesan</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tulis pesan Anda di sini..."></textarea>
                     </div>
                     
                     <button type="submit">Kirim Pesan</button>
