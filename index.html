@@ -539,6 +539,24 @@
             transform: rotate(5deg);
             box-shadow: 0 3px 10px rgba(0,0,0,0.2);
         }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--light);
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
@@ -551,10 +569,10 @@
             
             <div class="cta-buttons">
                 <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i> Konsultasi Gratis
+                    Konsultasi Gratis
                 </a>
                 <a href="https://t.me/zrpremium_bot" class="btn btn-secondary" target="_blank">
-                    <i class="fab fa-telegram"></i> Telegram Bot
+                    Telegram Bot
                 </a>
             </div>
         </div>
@@ -579,17 +597,14 @@
             
             <div class="service-cards">
                 <div class="card">
-                    <i class="fas fa-bullseye"></i>
                     <h3>Misi Kami</h3>
                     <p>Menyediakan solusi bot Telegram yang mudah digunakan, andal, dan terintegrasi dengan sistem pembayaran modern untuk membantu bisnis berkembang di era digital.</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-rocket"></i>
                     <h3>Keunggulan</h3>
                     <p>Botly dibangun dengan teknologi Cloudflare Workers yang memastikan kecepatan dan keandalan tinggi, serta skalabilitas untuk menangani ribuan pengguna secara bersamaan.</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-users"></i>
                     <h3>Target Pengguna</h3>
                     <p>Cocok untuk pemula di platform Android yang ingin mengotomatisasi bisnis mereka tanpa memerlukan pengetahuan pemrograman teknis yang mendalam.</p>
                 </div>
@@ -602,32 +617,26 @@
             
             <div class="service-cards">
                 <div class="card">
-                    <i class="fas fa-robot"></i>
                     <h3>Bot Pesan Otomatis</h3>
                     <p>Buat bot yang dapat merespons pesan secara otomatis, memberikan informasi produk, dan menangani pertanyaan umum pelanggan 24/7.</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-shopping-cart"></i>
                     <h3>Sistem Pemesanan</h3>
                     <p>Kembangkan sistem pemesanan produk atau layanan melalui bot Telegram dengan proses yang mudah dan intuitif.</p>
                 </div>
                 <div class="card">
-                    <i class="fab fa-bitcoin"></i>
                     <h3>Integrasi Pembayaran Kripto</h3>
                     <p>Hubungkan bot Anda dengan NowPayments untuk menerima pembayaran dalam berbagai kripto seperti USDT, Bitcoin, dan lainnya.</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-database"></i>
                     <h3>Manajemen Data Pelanggan</h3>
                     <p>Simpan dan kelola data pesanan dan sesi pelanggan menggunakan Cloudflare KV untuk akses yang cepat dan aman.</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-chart-bar"></i>
                     <h3>Laporan dan Analitik</h3>
                     <p>Sediakan dashboard sederhana untuk memantau aktivitas bot, pesanan, dan pembayaran yang masuk.</p>
                 </div>
                 <div class="card">
-                    <i class="fas fa-tools"></i>
                     <h3>Dukungan dan Pemeliharaan</h3>
                     <p>Berikan dukungan teknis berkelanjutan dan pemeliharaan rutin untuk memastikan bot Anda berjalan optimal.</p>
                 </div>
@@ -640,7 +649,7 @@
             <h3>Mulai dengan Bot Telegram Premium Kami</h3>
             <p>Untuk pengalaman terbaik dan konsultasi langsung, hubungi bot Telegram resmi kami. Dapatkan informasi lengkap dan bantuan teknis secara real-time.</p>
             <a href="https://t.me/zrpremium_bot" class="btn" target="_blank">
-                <i class="fab fa-telegram"></i> @zrpremium_bot
+                @zrpremium_bot
             </a>
         </div>
         
@@ -650,19 +659,19 @@
             
             <div class="tech-stack">
                 <div class="tech-item">
-                    <i class="fas fa-cloud"></i> Cloudflare Workers
+                    Cloudflare Workers
                 </div>
                 <div class="tech-item">
-                    <i class="fas fa-database"></i> Cloudflare KV
+                    Cloudflare KV
                 </div>
                 <div class="tech-item">
-                    <i class="fas fa-money-bill-wave"></i> NowPayments API
+                    NowPayments API
                 </div>
                 <div class="tech-item">
-                    <i class="fab fa-telegram"></i> Telegram Bot API
+                    Telegram Bot API
                 </div>
                 <div class="tech-item">
-                    <i class="fab fa-js-square"></i> JavaScript
+                    JavaScript
                 </div>
             </div>
             
@@ -779,20 +788,20 @@
                     </div>
                     
                     <button type="submit">
-                        <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        Kirim Pesan
                     </button>
                 </form>
             </div>
             
-            <div style="text-align: center; margin-top: 40px;">
-                <p>Atau hubungi kami langsung melalui:</p>
-                <div style="margin-top: 20px;">
-                    <a href="https://t.me/zrpremium_bot" class="btn btn-primary" target="_blank" style="margin: 10px;">
-                        <i class="fab fa-telegram"></i> Telegram Bot
-                    </a>
-                    <a href="mailto:hello_botly@zohomail.com" class="btn btn-secondary" style="margin: 10px;">
-                        <i class="fas fa-envelope"></i> Email
-                    </a>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>Email: hello_botly@zohomail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>Telegram: @zrpremium_bot</span>
+                </div>
+                <div class="contact-item">
+                    <span>Website: botly.pages.dev</span>
                 </div>
             </div>
         </section>
@@ -831,9 +840,9 @@
                 <div class="footer-section">
                     <h3>Kontak</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-envelope"></i> hello_botly@zohomail.com</li>
-                        <li><i class="fab fa-telegram"></i> @zrpremium_bot</li>
-                        <li><i class="fas fa-globe"></i> botly.pages.dev</li>
+                        <li>hello_botly@zohomail.com</li>
+                        <li>@zrpremium_bot</li>
+                        <li>botly.pages.dev</li>
                     </ul>
                 </div>
             </div>
