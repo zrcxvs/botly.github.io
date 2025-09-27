@@ -307,6 +307,65 @@
             padding: 8px 15px;
             border-radius: 3px;
             color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .contact-item:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .contact-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark);
+            transition: all 0.3s;
+            padding: 15px;
+            border-radius: 8px;
+            width: 150px;
+        }
+        
+        .contact-icon:hover {
+            background: var(--light);
+            transform: translateY(-5px);
+        }
+        
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+        
+        .email-icon {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+        }
+        
+        .telegram-icon {
+            background: linear-gradient(135deg, #0088cc, #004d7a);
+            color: white;
+        }
+        
+        .website-icon {
+            background: linear-gradient(135deg, #10ac84, #0d8c6a);
+            color: white;
         }
         
         @media (max-width: 768px) {
@@ -338,6 +397,14 @@
             
             .logo {
                 font-size: 2.5rem;
+            }
+            
+            .contact-icons {
+                gap: 15px;
+            }
+            
+            .contact-icon {
+                width: 130px;
             }
         }
     </style>
@@ -495,11 +562,38 @@
         <section id="contact">
             <h2>Hubungi Kami</h2>
             
+            <!-- Kontak Ikon yang Dapat Diklik -->
+            <div class="contact-icons">
+                <a href="mailto:hello_botly@zohomail.com" class="contact-icon">
+                    <div class="icon-circle email-icon">
+                        ✉️
+                    </div>
+                    <span>Email</span>
+                    <small>hello_botly@zohomail.com</small>
+                </a>
+                
+                <a href="https://t.me/zrpremium_bot" target="_blank" class="contact-icon">
+                    <div class="icon-circle telegram-icon">
+                        📱
+                    </div>
+                    <span>Telegram</span>
+                    <small>@zrpremium_bot</small>
+                </a>
+                
+                <a href="https://botly.pages.dev" target="_blank" class="contact-icon">
+                    <div class="icon-circle website-icon">
+                        🌐
+                    </div>
+                    <span>Website</span>
+                    <small>botly.pages.dev</small>
+                </a>
+            </div>
+            
             <div class="contact-form">
                 <form id="contactForm" action="https://formspree.io/f/xpwyqlje" method="POST">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required placeholder="Masukkan alamat email Anda">
                     </div>
                     
                     <div class="form-group">
@@ -514,17 +608,24 @@
                     
                     <div class="form-group">
                         <label for="message">Pesan</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tulis pesan Anda di sini..."></textarea>
                     </div>
                     
                     <button type="submit">Kirim Pesan</button>
                 </form>
             </div>
             
+            <!-- Kontak dalam bentuk teks yang dapat diklik -->
             <div class="contact-info">
-                <div class="contact-item">Email: hello_botly@zohomail.com</div>
-                <div class="contact-item">Telegram: @zrpremium_bot</div>
-                <div class="contact-item">Website: botly.pages.dev</div>
+                <a href="mailto:hello_botly@zohomail.com" class="contact-item">
+                    Email: hello_botly@zohomail.com
+                </a>
+                <a href="https://t.me/zrpremium_bot" target="_blank" class="contact-item">
+                    Telegram: @zrpremium_bot
+                </a>
+                <a href="https://botly.pages.dev" target="_blank" class="contact-item">
+                    Website: botly.pages.dev
+                </a>
             </div>
         </section>
     </div>
@@ -549,9 +650,9 @@
                 <div class="footer-section">
                     <h3>Kontak</h3>
                     <ul class="footer-links">
-                        <li>hello_botly@zohomail.com</li>
-                        <li>@zrpremium_bot</li>
-                        <li>botly.pages.dev</li>
+                        <li><a href="mailto:hello_botly@zohomail.com">hello_botly@zohomail.com</a></li>
+                        <li><a href="https://t.me/zrpremium_bot" target="_blank">@zrpremium_bot</a></li>
+                        <li><a href="https://botly.pages.dev" target="_blank">botly.pages.dev</a></li>
                     </ul>
                 </div>
             </div>
