@@ -244,6 +244,16 @@
             margin: 20px 0;
         }
         
+        .success-message {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+        
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
@@ -435,7 +445,13 @@
             <p>Untuk informasi lebih lanjut atau konsultasi tentang layanan Botly, silakan hubungi kami:</p>
             
             <div class="contact-form">
-                <form id="contactForm">
+                <!-- Pesan sukses yang akan ditampilkan setelah form terkirim -->
+                <div class="success-message" id="successMessage">
+                    <strong>Terima kasih!</strong> Pesan Anda telah berhasil dikirim. Kami akan menghubungi Anda segera.
+                </div>
+                
+                <!-- Form yang terhubung ke Formspree -->
+                <form id="contactForm" action="https://formspree.io/f/xpwyqlje" method="POST">
                     <div class="form-group">
                         <label for="name">Nama</label>
                         <input type="text" id="name" name="name" required>
@@ -487,10 +503,23 @@
         
         // Penanganan pengiriman formulir
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Terima kasih! Pesan Anda telah terkirim. Kami akan menghubungi Anda segera.');
-            this.reset();
+            // Biarkan form dikirim ke Formspree secara normal
+            // Tampilkan pesan sukses setelah pengiriman
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('contactForm').reset();
+                
+                // Scroll ke pesan sukses
+                document.getElementById('successMessage').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            }, 1000);
         });
+        
+        // Jika ada parameter success di URL, tampilkan pesan sukses
+        if (window.location.search.includes('success=true')) {
+            document.getElementById('successMessage').style.display = 'block';
+        }
     </script>
 </body>
-    </html>
+</html>
